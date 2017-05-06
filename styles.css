@@ -27,7 +27,6 @@ p:last-child {
 }
 
 .hero {
-  color: white;
   background-color: #5E6472;
   display: flex;
   flex-direction: column;
@@ -37,5 +36,13 @@ p:last-child {
 
 .section {
   padding-bottom: 70px;
-  padding-top: 70px
+  padding-top: 70px;
+}
+
+.picture {
+  background-color: #CB8589;
+}
+
+.white {
+  color: white;
 }
