@@ -3,6 +3,20 @@ body {
   color: #4A4A4A
 }
 
+footer {
+  align-items: center;
+  background-color: #4A4A4A;
+  color: #D8D8D8;
+  display: flex;
+  height: 80px;
+}
+
+footer p {
+  font-size: 14px;
+  margin-bottom: 0;
+  text-align: left;
+}
+
 h1 {
   font-size: 64px;
   font-weight: 700;
@@ -12,8 +26,8 @@ h1 {
 h2 {
   font-size: 28px;
   font-weight: 700;
-  text-align: center;
   margin-bottom: 60px;
+  text-align: center;
 }
 
 h3 {
@@ -26,12 +40,19 @@ p {
   font-size: 22px;
   font-weight: 300;
   line-height: normal;
+  margin-bottom: 60px;
   text-align: center;
-  margin-bottom: 60px
 }
 
 p:last-child {
   margin-bottom: 0
+}
+
+@media (max-width: 767px) {
+  .svg-container {
+    margin-bottom: 50px;
+    min-height: 200px;
+  }
 }
 
 .hero {
