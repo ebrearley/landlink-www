@@ -15,7 +15,7 @@ $(function() {
     const slackMessage = {
         username: 'LandLink Website\'s friendly bot, Beep Boop',
         icon_emoji: emojis[Math.floor(Math.random() * emojis.length)],
-        channel: '#website-test',
+        channel: '#website-subscriptions',
         attachments: [{
             fallback: `New mailing list subscription from ${name} with email: ${email}`,
             title: 'New mailing list subscription!',
