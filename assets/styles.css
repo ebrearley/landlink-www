@@ -24,7 +24,7 @@ h1 {
 }
 
 h2 {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 700;
   margin-bottom: 60px;
   text-align: center;
@@ -48,19 +48,11 @@ p:last-child {
   margin-bottom: 0
 }
 
-@media (max-width: 767px) {
-  .svg-container {
-    margin-bottom: 50px;
-    min-height: 200px;
-  }
-}
-
 .hero {
-  background-color: #9BEBEF;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 450px;
+  height: 600px;
 }
 
 .form {
@@ -84,8 +76,20 @@ p:last-child {
   padding-top: 70px;
 }
 
-.picture {
-  background-color: #CB8589;
+.parallax-background {
+  background: transparant;
+}
+
+.isolation-background {
+  background-color: #2274A5;
+}
+
+.helping-background {
+  background-color: #54CE5C;
+}
+
+.form-background {
+  background-color: #FF5B2D;
 }
 
 .svg-container {
@@ -93,6 +97,13 @@ p:last-child {
   flex-direction: column;
   justify-content: space-between;
   min-height: 280px
+}
+
+@media (max-width: 767px) {
+  .svg-container {
+    margin-bottom: 50px;
+    min-height: 200px;
+  }
 }
 
 .svg {
