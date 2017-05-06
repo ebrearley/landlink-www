@@ -9,9 +9,47 @@
     <link rel="stylesheet" href="assets/reset.css">
     <link rel="stylesheet" href="assets/bootstrap.min.css">
     <link rel="stylesheet" href="assets/styles.css">
+
+    <script type="text/javascript">
+      function loadScript(url, callback) {
+          var script = document.createElement("script");
+          script.type = "text/javascript";
+          script.async = true;
+          if (script.readyState) {
+              script.onreadystatechange = function () {
+                  if (script.readyState == "loaded" || script.readyState == "complete") {
+                      script.onreadystatechange = null;
+                      if (callback && typeof callback === "function") {
+                          callback();
+                      }
+                  }
+              };
+          } else {
+              script.onload = function () {
+                  if (callback && typeof callback === "function") {
+                      callback();
+                  }
+              };
+          }
+          script.src = url;
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+      }
+
+      function lazilyLoadJs() {
+        loadScript("assets/jquery.min.js", function () {
+          loadScript("assets/bootstrap.min.js");
+          loadScript("assets/slack.js");
+          loadScript("assets/parallax.min.js", function () {
+            $('#hero').parallax({imageSrc: 'assets/field.jpg'});
+            $('#isolation').parallax({imageSrc: 'assets/holding-straw.jpg'});
+            loadScript("assets/prepare-parallax.js");
+          });
+        });
+      }
+    </script>
   </head>
-  <body>
-    <div id="hero" class="parallax-background hero white parallax-window hero-background" data-parallax="scroll" data-image-src="assets/field.jpg">
+  <body onload="lazilyLoadJs();">
+    <div id="hero" class="parallax-background hero white hero-background">
       <h1>LandLink</h1>
     </div>
     <div class="section">
@@ -23,7 +61,7 @@
         </div>
       </div>
     </div>
-    <div id="isolation" class="parallax-background section white parallax-window isolation-background" data-parallax="scroll" data-image-src="assets/holding-straw.jpg">
+    <div id="isolation" class="parallax-background section white isolation-background">
       <div class="container">
         <div class="row">
           <p>Sadly</p>
@@ -118,9 +156,4 @@
       </div>
     </footer>
   </body>
-  <script src="assets/jquery.min.js"></script>
-  <script src="assets/parallax.min.js"></script>
-  <script src="assets/prepare-parallax.js"></script>
-  <script src="assets/bootstrap.min.js"></script>
-  <script src="assets/slack.js"></script>
 </html>
