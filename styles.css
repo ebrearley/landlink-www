@@ -1,0 +1,17 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.hero {
+  align-items: center;
+  color: white;
+  background-color: #5E6472;
+  display: flex;
+  justify-content: center;
+  height: 450px;
+}
