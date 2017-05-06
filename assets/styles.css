@@ -88,6 +88,10 @@ p:last-child {
   background-color: #54CE5C;
 }
 
+.hero-background {
+  background-color: #F49E4C;
+}
+
 .form-background {
   background-color: #FF5B2D;
 }
@@ -112,4 +116,12 @@ p:last-child {
 
 .white {
   color: white;
+}
+
+.hidden-block {
+  display: none;
+}
+
+.left-align {
+  text-align: left;
 }

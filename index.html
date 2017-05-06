@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/styles.css">
   </head>
   <body>
-    <div class="parallax-background hero white parallax-window" data-parallax="scroll" data-image-src="assets/field.jpg">
+    <div id="hero" class="hero-background parallax-background hero white parallax-window" data-parallax="scroll" data-image-src="assets/field.jpg">
       <h1>LandLink</h1>
     </div>
     <div class="section">
@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-    <div class="parallax-background section white parallax-window" data-parallax="scroll" data-image-src="assets/holding-straw.jpg">
+    <div id="isolation" class="isolation-background parallax-background section white parallax-window" data-parallax="scroll" data-image-src="assets/holding-straw.jpg">
       <div class="container">
         <div class="row">
           <p>Sadly</p>
@@ -62,7 +62,7 @@
             <div class="svg-container">
               <h3>Experience</h3>
               <img class="svg" src="assets/fruit-picking.svg" role="presentation" />
-              <p><small>the farm’s daily activities</small></p>
+              <p><small>the farm&apos;s daily activities</small></p>
             </div>
           </div>
           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -89,17 +89,22 @@
           <p>Join the mailing list and get notified of upcoming events.</p>
         </div>
         <div class="row">
-          <form class="form">
+          <form id="emailForm" class="form">
             <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-              <input type="text" class="form-control" id="firstName" placeholder="First name">
+              <input type="text" class="form-control" id="frmFirstName" required="true" placeholder="First name">
             </div>
             <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-              <input type="email" class="form-control" id="email" placeholder="Email address">
+              <input type="email" class="form-control" id="frmEmailAddress" required="true" placeholder="Email address">
             </div>
             <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-              <button type="submit" onClick="" class="btn btn-primary">Join list</button>
+              <button type="submit" id="frmSubmittButton" class="btn btn-primary">Join list</button>
             </div>
           </form>
+        </div>
+        <div id="cta-success" class="row left-align hidden-block">
+          <p>
+            Thank you for your subscription!
+          </p>
         </div>
       </div>
     </div>
@@ -111,6 +116,9 @@
       </div>
     </footer>
   </body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="assets/jquery.min.js"></script>
   <script src="assets/parallax.min.js"></script>
+  <script src="assets/prepare-parallax.js"></script>
+  <script src="assets/bootstrap.min.js"></script>
+  <script src="assets/slack.js"></script>
 </html>
