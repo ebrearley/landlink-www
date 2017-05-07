@@ -2,8 +2,9 @@
 <html>
   <head>
     <title>LandLink</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0' />
-
+    <meta name="description" content="LandLink is building a rural community full of enthusiastic and adventurous people who love making a difference. And we welcome you to join!">
     <!-- add social meta tags here -->
 
     <noscript id="deferred-styles">
@@ -59,16 +60,18 @@
           loadScript("assets/bootstrap.min.js");
           loadScript("assets/slack.js");
           loadScript("assets/parallax.min.js", function () {
-            $('#hero').parallax({imageSrc: 'assets/field.jpg'});
-            $('#isolation').parallax({imageSrc: 'assets/holding-straw.jpg'});
-            loadScript("assets/prepare-parallax.js");
+            window.setTimeout(function () {
+              $('#hero').parallax({imageSrc: 'assets/field.jpg'});
+              $('#isolation').parallax({imageSrc: 'assets/holding-straw.jpg'});
+              loadScript("assets/prepare-parallax.js");
+            }, 500)
           });
         });
       }
     </script>
   </head>
   <body onload="lazilyLoadJs();">
-    <div id="hero" class="parallax-background hero white hero-background">
+    <div id="hero" class="hero white hero-background">
       <h1>LandLink</h1>
     </div>
     <div class="section">
@@ -80,7 +83,7 @@
         </div>
       </div>
     </div>
-    <div id="isolation" class="parallax-background section white isolation-background">
+    <div id="isolation" class="section white isolation-background">
       <div class="container">
         <div class="row">
           <p>Sadly</p>
