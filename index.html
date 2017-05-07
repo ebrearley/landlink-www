@@ -55,22 +55,38 @@
       if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
       else window.addEventListener('load', loadDeferredStyles);
 
-      function lazilyLoadJs() {
+      function lazilyLoadAssets() {
         loadScript("assets/jquery.min.js", function () {
           loadScript("assets/bootstrap.min.js");
           loadScript("assets/slack.js");
           loadScript("assets/parallax.min.js", function () {
             window.setTimeout(function () {
-              $('#hero').parallax({imageSrc: 'assets/field.jpg'});
-              $('#isolation').parallax({imageSrc: 'assets/holding-straw.jpg'});
-              loadScript("assets/prepare-parallax.js");
+              const imagesToPreload = [
+                { url: 'assets/field.jpg', id: 'hero' },
+                { url: 'assets/holding-straw.jpg', id: 'isolation' },
+              ];
+
+              function prepareImage(image) {
+                const element = $(`#${image.id}`);
+                element.parallax({imageSrc: image.url});
+                element.addClass('transition');
+                element.removeClass(`${image.id}-background`);
+              }
+
+              imagesToPreload.forEach(function(imageToPreload) {
+                var img = new Image();
+                img.onload = function () {
+                  prepareImage(imageToPreload);
+                };
+                img.src = imageToPreload.url;
+              });
             }, 500)
           });
         });
       }
     </script>
   </head>
-  <body onload="lazilyLoadJs();">
+  <body onload="lazilyLoadAssets();">
     <div id="hero" class="hero white hero-background">
       <h1>LandLink</h1>
     </div>
