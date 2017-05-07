@@ -5,10 +5,13 @@
     <meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0' />
 
     <!-- add social meta tags here -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
-    <link rel="stylesheet" href="assets/reset.css">
-    <link rel="stylesheet" href="assets/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/styles.css">
+
+    <noscript id="deferred-styles">
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
+      <link rel="stylesheet" href="assets/reset.css">
+      <link rel="stylesheet" href="assets/bootstrap.min.css">
+      <link rel="stylesheet" href="assets/styles.css">
+    </noscript>
 
     <script type="text/javascript">
       function loadScript(url, callback) {
@@ -34,6 +37,22 @@
         script.src = url;
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
       }
+
+      var loadDeferredStyles = function() {
+        var addStylesNode = document.getElementById("deferred-styles");
+        var replacement = document.createElement("div");
+        replacement.innerHTML = addStylesNode.textContent;
+        document.body.appendChild(replacement)
+        addStylesNode.parentElement.removeChild(addStylesNode);
+      };
+
+      var raf = requestAnimationFrame
+        || mozRequestAnimationFrame
+        || webkitRequestAnimationFrame
+        || msRequestAnimationFrame;
+
+      if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+      else window.addEventListener('load', loadDeferredStyles);
 
       function lazilyLoadJs() {
         loadScript("assets/jquery.min.js", function () {
