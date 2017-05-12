@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LandLink</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0' />
+    <meta name="description" content="LandLink is building a new community full of enthusiastic and adventurous people who love making a difference. And we welcome you to join!">
+    <!-- add social meta tags here -->
+
+    <noscript id="deferred-styles">
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
+      <link rel="stylesheet" href="assets/reset.css">
+      <link rel="stylesheet" href="assets/bootstrap.min.css">
+      <link rel="stylesheet" href="assets/styles.css">
+    </noscript>
+
+    <script type="text/javascript">
+      function loadScript(url, callback) {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.async = true;
+        if (script.readyState) {
+          script.onreadystatechange = function () {
+            if (script.readyState == "loaded" || script.readyState == "complete") {
+              script.onreadystatechange = null;
+              if (callback && typeof callback === "function") {
+                callback();
+              }
+            }
+          };
+        } else {
+          script.onload = function () {
+            if (callback && typeof callback === "function") {
+              callback();
+            }
+          };
+        }
+        script.src = url;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+      }
+
+      var loadDeferredStyles = function() {
+        var addStylesNode = document.getElementById("deferred-styles");
+        var replacement = document.createElement("div");
+        replacement.innerHTML = addStylesNode.textContent;
+        document.body.appendChild(replacement)
+        addStylesNode.parentElement.removeChild(addStylesNode);
+      };
+
+      var raf = requestAnimationFrame
+        || mozRequestAnimationFrame
+        || webkitRequestAnimationFrame
+        || msRequestAnimationFrame;
+
+      if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+      else window.addEventListener('load', loadDeferredStyles);
+
+      function lazilyLoadAssets() {
+        loadScript("assets/jquery.min.js", function () {
+          loadScript("assets/bootstrap.min.js");
+          loadScript("assets/slack.js");
+          loadScript("assets/parallax.min.js", function () {
+            window.setTimeout(function () {
+              const imagesToPreload = [
+                { url: 'assets/field.jpg', id: 'hero' },
+                { url: 'assets/holding-straw.jpg', id: 'isolation' },
+              ];
+
+              function prepareImage(image) {
+                const element = $(`#${image.id}`);
+                element.parallax({imageSrc: image.url});
+                element.addClass('transition');
+                element.removeClass(`${image.id}-background`);
+              }
+
+              imagesToPreload.forEach(function(imageToPreload) {
+                var img = new Image();
+                img.onload = function () {
+                  prepareImage(imageToPreload);
+                };
+                img.src = imageToPreload.url;
+              });
+            }, 500)
+          });
+        });
+      }
+    </script>
+  </head>
+  <body onload="lazilyLoadAssets();">
+    <div id="hero" class="hero white hero-background">
+      <h1>LandLink</h1>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <h2>Our farmers</h2>
+          <p>work hard to provide for the country we love.</p>
+          <p>They live in beautiful remote places all around the nation, sometimes this can be isolating.</p>
+        </div>
+      </div>
+    </div>
+    <div id="isolation" class="section white isolation-background">
+      <div class="container">
+        <div class="row">
+          <p>Sadly</p>
+          <H2>isolation</H2>
+          <p>is a powerful contributor to depression, broken relationships and suicide.</p>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <p>With</p>
+          <H2>your involvement</H2>
+          <p>
+            we can make a difference by bridging the gap between those from urban areas with those in rural areas.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="helping-background section white">
+      <div class="container">
+        <div class="row">
+          <p>We are building a new</p>
+          <H2>community</H2>
+          <p>
+            full of enthusiastic and adventurous people who love making a difference.<br /><br />
+            And we welcome you to join!
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <H2>A weekend on the farm</H2>
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="svg-container">
+              <h3>Experience</h3>
+              <img class="svg" src="assets/fruit-picking.svg" role="presentation" />
+              <p><small>the farm&apos;s daily activities</small></p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="svg-container">
+              <h3>Celebration</h3>
+              <img class="svg" src="assets/marshmellows.svg" role="presentation" />
+              <p><small>of the adventure</small></p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="svg-container">
+              <h3>Grow</h3>
+              <img class="svg" src="assets/people.svg" role="presentation" />
+              <p><small>relationships and make new friends</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-background section white">
+      <div class="container">
+        <div class="row">
+          <H2>Working together is better</H2>
+          <p>Join the mailing list and get notified of upcoming events.</p>
+        </div>
+        <div class="row">
+          <form id="emailForm" class="form">
+            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+              <input type="text" class="form-control" id="frmFirstName" required="true" placeholder="First name">
+            </div>
+            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+              <input type="email" class="form-control" id="frmEmailAddress" required="true" placeholder="Email address">
+            </div>
+            <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+              <button type="submit" id="frmSubmittButton" class="btn btn-primary">Join list</button>
+            </div>
+          </form>
+        </div>
+        <div id="cta-success" class="row left-align hidden-block">
+          <p>
+            Thank you for your subscription!
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <p>Copyright LandLink 2017</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
